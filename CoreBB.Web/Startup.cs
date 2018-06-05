@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoreBB.Web.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,6 +25,8 @@ namespace CoreBB.Web
                     option.AccessDeniedPath = "/Error/AccessDenied";
                     option.Cookie.SecurePolicy = CookieSecurePolicy.Always;
                 });
+
+            services.AddDbContext<CoreBBContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
